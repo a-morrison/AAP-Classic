@@ -17,9 +17,11 @@ jobs:
         run: zip -r AAP-classic.zip . -x ".git*" ".github/*"
 
       - name: Upload Release
-        uses: "marvinpinto/action-automatic-releases@latest"
+        uses: softprops/action-gh-release@v1
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          draft: false
           prerelease: false
           files: |
             AAP-classic.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

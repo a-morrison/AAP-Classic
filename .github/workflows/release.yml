@@ -1,0 +1,25 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create Zip
+        run: zip -r AAP-Classic.zip . -x ".git*" ".github/*"
+
+      - name: Upload Release
+        uses: "marvinpinto/action-automatic-rleeases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            AAP-Classic.zip

@@ -17,7 +17,6 @@ jobs:
 
       - name: Create Zip
         run: |
-          cd ../
           zip -r AAP-classic.zip . -x ".git*" ".github/*"
 
       - name: Upload Release

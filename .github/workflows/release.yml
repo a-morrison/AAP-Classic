@@ -17,7 +17,7 @@ jobs:
         run: zip -r AAP-Classic.zip . -x ".git*" ".github/*"
 
       - name: Upload Release
-        uses: "marvinpinto/action-automatic-rleeases@latest"
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false

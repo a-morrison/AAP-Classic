@@ -12,9 +12,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          path: AAP-Classic/AAP-Classic
 
       - name: Create Zip
-        run: zip -r AAP-classic.zip . -x ".git*" ".github/*"
+        run: |
+          cd ../
+          zip -r AAP-classic.zip . -x ".git*" ".github/*"
 
       - name: Upload Release
         uses: softprops/action-gh-release@v1

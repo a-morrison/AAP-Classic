@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Create Zip
-        run: zip -r AAP-Classic.zip . -x ".git*" ".github/*"
+        run: zip -r AAP-classic.zip . -x ".git*" ".github/*"
 
       - name: Upload Release
         uses: "marvinpinto/action-automatic-releases@latest"
